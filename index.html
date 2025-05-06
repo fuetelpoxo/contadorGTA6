@@ -72,27 +72,43 @@
         }
 
         @media (max-width: 768px) {
-            .tiempo {
-                flex-direction: column;
-                align-items: center;
-            }
+    body {
+        align-items: center;
+        padding-top: 40px;
+        background-position: top center;
+        
+    }
 
-            .bloque {
-                margin: 10px 0;
-            }
+    #contador {
+        width: 90%;
+        padding: 20px 30px;
+        box-sizing: border-box;
+    }
 
-            #contador {
-                padding: 30px 50px;
-            }
+    #contador h1 {
+        font-size: 32px;
+    }
 
-            #contador h1 {
-                font-size: 48px;
-            }
+    .tiempo {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
 
-            .bloque span {
-                font-size: 20px;
-            }
-        }
+    .bloque {
+        width: 40%;
+        margin: 5px;
+        padding: 10px;
+    }
+
+    .bloque span {
+        font-size: 18px;
+    }
+
+    .bloque div {
+        font-size: 24px;
+    }
+}
     </style>
 </head>
 <body>
