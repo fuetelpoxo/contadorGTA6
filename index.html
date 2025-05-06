@@ -7,28 +7,31 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #00aaff, #1e4c9b);
+            background-image: url('descarga1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             overflow: hidden;
+            color: white;
         }
 
         #contador {
             text-align: center;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.7); /* Fondo oscuro para mejorar la visibilidad */
             padding: 40px 60px;
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            color: white;
             transform: scale(1);
             animation: fadeIn 1s ease-out, scaleIn 0.8s ease-out;
         }
 
         #contador h1 {
-            font-size: 60px;
+            font-size: 80px;
             font-weight: bold;
             margin-bottom: 20px;
         }
@@ -42,7 +45,7 @@
         }
 
         .bloque {
-            background-color: #1e4c9b;
+            background-color: rgba(30, 76, 155, 0.8); /* Color más suave para el fondo de cada bloque */
             padding: 15px;
             border-radius: 10px;
             width: 120px;
@@ -94,7 +97,7 @@
 </head>
 <body>
     <div id="contador">
-        <h1>Faltan para el 26 de Mayo de 2026</h1>
+        <h1>Grand Theft Auto 6</h1>
         <div class="tiempo">
             <div class="bloque" id="dias">
                 <span>Días</span>
