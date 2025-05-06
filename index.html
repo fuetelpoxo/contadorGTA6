@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de tiempo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #00aaff, #1e4c9b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #contador {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            color: white;
+            transform: scale(1);
+            animation: fadeIn 1s ease-out, scaleIn 0.8s ease-out;
+        }
+
+        #contador h1 {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .tiempo {
+            display: flex;
+            justify-content: space-around;
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .bloque {
+            background-color: #1e4c9b;
+            padding: 15px;
+            border-radius: 10px;
+            width: 120px;
+            transition: transform 0.3s ease;
+        }
+
+        .bloque:hover {
+            transform: scale(1.1);
+        }
+
+        .bloque span {
+            display: block;
+            font-size: 24px;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            0% { transform: scale(0.5); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .tiempo {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .bloque {
+                margin: 10px 0;
+            }
+
+            #contador {
+                padding: 30px 50px;
+            }
+
+            #contador h1 {
+                font-size: 48px;
+            }
+
+            .bloque span {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="contador">
+        <h1>Faltan para el 26 de Mayo de 2026</h1>
+        <div class="tiempo">
+            <div class="bloque" id="dias">
+                <span>Días</span>
+                <div id="diasValor">0</div>
+            </div>
+            <div class="bloque" id="horas">
+                <span>Horas</span>
+                <div id="horasValor">0</div>
+            </div>
+            <div class="bloque" id="minutos">
+                <span>Minutos</span>
+                <div id="minutosValor">0</div>
+            </div>
+            <div class="bloque" id="segundos">
+                <span>Segundos</span>
+                <div id="segundosValor">0</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function actualizarContador() {
+            const fechaObjetivo = new Date('2026-05-26T00:00:00');
+            const fechaActual = new Date();
+
+            const diferencia = fechaObjetivo - fechaActual;
+
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById('diasValor').innerText = dias;
+            document.getElementById('horasValor').innerText = horas;
+            document.getElementById('minutosValor').innerText = minutos;
+            document.getElementById('segundosValor').innerText = segundos;
+        }
+
+        setInterval(actualizarContador, 1000);
+        actualizarContador();
+    </script>
+</body>
+</html>
